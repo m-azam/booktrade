@@ -1,0 +1,29 @@
+{% extends 'sell/base.html' %}
+{% block body %}
+{% if error %}
+    <div class="alert alert-danger" style="margin:70px 0px 0px 0px;"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;{{ error }}</div>
+{% endif %}
+{% for book in books %}
+	<div class="b_plac col-xs-12 col-md-10 col-md-offset-1">
+        <div class="bname"> {{ book.book_name }}</div>
+        <hr>
+        <div class="alert alert-info bprice" role="alert">&#8377;{{ book.book_price }}</div>
+        <div class="alert alert-success bpno" role="alert"><span class="glyphicon glyphicon-phone-alt"></span>{{ book.book_pno }}</div>
+    </div>
+{% endfor %}
+<div class="pagination col-xs-12 col-md-10 col-md-offset-1">
+    <span class="step-links">
+        {% if books.has_previous %}
+            <a href="{% url 'sell:searchx' page %}?page={{ books.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ books.number }} of {{ books.paginator.num_pages }}.
+        </span>
+
+        {% if books.has_next %}
+            <a href="{% url 'sell:searchx' page %}?page={{ books.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

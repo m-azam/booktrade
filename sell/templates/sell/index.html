@@ -1,0 +1,86 @@
+{% extends 'sell/base.html' %}
+{% block body %}
+<div class="row mobversion">
+	<div class="col-xs-12" id="card">
+		<div class="front">
+			<h1>A platform for buying and selling engineering books.</h1>
+			<button type="button" class="continue-btn mfb" name="conti1">Continue »</button>
+		</div>
+		<div class="back mobbi">
+			<form action="{% url 'sell:searchm' %}" method="post">
+				{% csrf_token %}
+				<label for="selectmenu1m">Select Sem</label>
+				<select name="selectmenu1m" class="selectmenu" id="selectmenu1">
+					<option value="1">1/2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+				</select></br>
+				<label for="selectmenu2m">Select Course</label>
+				<select name="selectmenu2m" class="selectmenu" id="selectmenu2">
+					<option value="1">CSE</option>
+					<option value="2">ECE</option>
+					<option value="3">ME</option>
+					<option value="4">EEE</option>					
+				</select></br>
+				<label for="subject_autocomplete2m">Start typing subject for autocomplete</label>
+				<input type="text" name="subject_autocomplete2m" id="subject_autocomplete1">
+			</br></br>
+				<button type="submit" class="continue-btn" name="mob_sub">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="row deskversion">
+	<div class="col-md-6 col-md-offset-3" id="card1">
+		<div class="front">
+			<h1>A platform for buying and selling engineering books.</h1>
+			<button type="button" class="continue-btn dfb" name="conti2">Continue »</button>
+		</div>
+		<div class="back desky">
+			<form action="{% url 'sell:search' %}" method="post">
+				{% csrf_token %}
+				<label for="selectmenu1" class="lbl">Select Semester</label>
+				<select name="selectmenu1" class="selectmenu" id="selectmenu1">
+					<option value="1">1/2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+				</select></br>
+				<label for="selectmenu2" class="lbl">Select Course</label>
+				<select name="selectmenu2" class="selectmenu" id="selectmenu2">
+					<option value="1">CSE</option>
+					<option value="2">ECE</option>
+					<option value="3">ME</option>
+					<option value="4">EEE</option>
+				</select></br>
+				<label for="subject_autocomplete2" class="lbl">Start typing subject for autocomplete</label>
+				<input type="text" name="subject_autocomplete2" id="subject_autocomplete2">
+				</br></br>
+				<button type="submit" class="continue-btn" name="desk_sub">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+var avail_subs =[{%for sub in sub_objs%}
+      "{{sub.subject_name}}",
+      {%endfor%}];
+    $("#subject_autocomplete2").autocomplete({
+      source: avail_subs,
+      minlength: 1
+    });
+    $("#subject_autocomplete1").autocomplete({
+      source: avail_subs,
+      minlength: 1
+    });
+    });
+</script>
+{% endblock %}

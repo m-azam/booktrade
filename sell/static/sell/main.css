@@ -1,0 +1,207 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	font-family: 'Ubuntu', sans-serif;
+}
+a{
+	color: white;
+}
+a:hover{
+	color: white;
+}
+h1{
+	color: white;
+	font:bold 70px 'Ubuntu', sans-serif;
+	text-shadow: 3px 3px 5px gray;
+}
+body{
+	background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 100%) fixed;
+	background: -o-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 100%) fixed;
+	background: -moz-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 100%) fixed;
+	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 100%) fixed;
+}
+.nav{
+	background-color: white;
+	border-bottom: 2px solid white;
+	margin: 0px; 
+}
+.hnav{
+	background-color: #1fc8db;
+	margin: 0px;
+}
+.slist li{
+	display: inline-block;
+	list-style-type: none;
+}
+.dlist{
+	font-size: 20px;
+	display: none;
+	color: white;
+}
+.dlist li{
+	list-style-type: none;
+	text-align: center;
+	padding: 2px;
+	border-bottom: 2px solid white; 
+}
+#card{
+	text-align: center;
+}
+#card1{
+	text-align: center;
+}
+.b_plac{
+	background-color: white;
+	border-radius: 5px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	box-shadow: 2px 2px 5px gray;
+}
+.bpno, .bprice{
+	display: inline-block;
+}
+.bname{
+	font:bold 40px 'Ubuntu', sans-serif;
+	text-shadow: 1px 1px 2px gray;
+}
+@media screen and (min-width: 768px) {
+	.mobversion{
+		display: none;
+		visibility: hidden;
+		padding-top: 40px;
+	}
+	.deskversion{
+		display: block;
+		margin-top: 110px;
+	}
+	.lbl {
+      display: block;
+      margin: 30px 0 10px 0;
+	}
+	.lblp{
+	display: inline-block;
+	color: white;
+	margin-right: 10px;
+	margin-left: 10px;
+	}
+	.postbooks{
+		margin-top: 20px;
+	}
+	.onebelow{
+		margin-top: 20px;
+		display: block;
+		margin-bottom: 20px;
+	}
+	.lblp1{
+		display: block;
+		color: white;
+	}
+	.lblp2{
+		
+	}
+	.bpno{
+		float: right;
+	}
+}
+@media screen and (max-width: 500px) {
+	.mobversion{
+		padding-top: 110px;
+	}
+	.deskversion{
+		display: none;
+	}
+	h1{
+	color: white;
+	font:bold 30px 'Ubuntu', sans-serif;
+	}
+	.lbl {
+      display: block;
+      margin: 20px 0 0 0;
+	}
+	.lblp{
+	display: block;
+	color: white;
+	margin: 20px 0 10px 0;
+	}
+	.postbooks{
+		margin-top: 20px;
+	}
+	.lblp1{
+		margin-top: 10px;
+		display: block;
+		color: white;
+	}
+	.lblp2{
+		display: block;
+		color: black;
+		margin-right: 10px;
+		margin-left: 10px;
+	}
+	.book{
+		display: block;
+		margin-top: 20px;
+		background-color: white;
+		font-color: black;
+		border-radius: 20px;
+		padding: 10px 0 10px 0;
+	}
+	.bprice{
+		padding: 2%;
+	}
+	.bpno{
+		float: right;
+		padding: 2%;
+	}
+	hr.poppy{
+		visibility: visible;
+	}
+}
+#mb{ /* burger button span */
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.front{
+	padding-right: 30px;
+}
+.back{
+	background-color: white;
+	border-radius: 20px;
+	margin: 3px solid gray; 
+	padding: 45px 68px 45px 68px; 
+}
+.continue-btn{
+	border-width: 1px;
+	border-color: white;
+	padding: 6px;
+	background-color: #1fc8db;
+	color: white;
+	border-radius: 30px;
+	box-shadow: 3px 3px 5px black;
+}
+.desky select{
+	margin-bottom: 40px;
+}
+.postbooks{
+	text-align: center;
+}
+.h11{
+	margin-bottom: 40px;
+}
+.book{
+	margin-top: 20px;
+	background-color: white;
+	font-color: black;
+	border-radius: 10px;
+	padding: 40px 2px 10px 0;
+}
+.book input{
+	border-bottom: 1px solid #1fc8db;
+}
+.errors{
+	color: red;
+}
+
+
+
+
+

@@ -1,0 +1,109 @@
+{% extends 'sell/base.html' %}
+{% block body %}
+<div class="row postbooks">
+	<div class="col-md-10 col-md-offset-1 col-xs-12">
+		{% if successx %}
+			<div class="alert alert-success"><h6><span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;&nbsp;{{ successx }}</h1></div>
+		{% endif %}
+		<div class="h11"><h1>Enter details of the book.</h1></div>
+		<form action="{% url 'sell:postb' %}" method="post">
+			{% csrf_token %}
+			<label for="course" class="lblp">select course</label>
+			<select name="course" class="selectmenu" id="course">
+				<option value="1">CSE</option>
+				<option value="2">ECE</option>
+				<option value="3">ME</option>
+				<option value="4">EEE</option>
+			</select>
+			<label for="sem" class="lblp">select sem</label>
+			<select name="sem" class="selectmenu" id="sem">
+				<option value="1">1/2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+			</select>
+			<div class="onebelow">
+				<label for="number" class="lblp1">Phone No.</label>
+				<input type="text" name="number" id="number">
+			</div>
+			{% if errorc %}
+				<br>
+				<p class="errors"><strong>{{ errorc }}</strong></p>
+				<br>
+			{% endif %}
+			{% if errors %}
+				<br>
+				<p class="errors"><strong>{{ errors }}</strong></p>
+				<br>
+			{% endif %}
+			{% if errorn %}
+				<br>
+				<p class="errors"><strong>{{ errorn }}</strong></p>
+				<br>
+			{% endif %}
+			{% if errors1 %}
+				<br>
+				<p class="errors"><strong>{{ errors1 }}</strong></p>
+				<br>
+			{% endif %}
+			{% if errorbn1 %}
+				<br>
+				<p class="errors"><strong>{{ errorbn1 }}</strong></p>
+				<br>
+			{% endif %}
+			{% if errorp1 %}
+				<br>
+				<p class="errors"><strong>{{ errorp1 }}</strong></p>
+				<br>
+			{% endif %}
+			<div class="book">
+			<div class="inner_book_div">
+				<label for="subject1" class="lblp2">Subject</label>
+				<input type="text" name="subject1" id="subject1">
+				<label for="bookname1" class="lblp2">Book Name</label>
+				<input type="text" name="bookname1" id="bookname1">
+				<label for="price1" class="lblp2">Price</label>
+				<input type="text" name="price1" id="price1">
+				</br>
+				<hr class="poppy">
+				<label for="subject2" class="lblp2">Subject</label>
+				<input type="text" name="subject2" id="subject2">
+				<label for="bookname2" class="lblp2">Book Name</label>
+				<input type="text" name="bookname2" id="bookname2">
+				<label for="price2" class="lblp2">Price</label>
+				<input type="text" name="price2" id="price2">
+				<hr class="poppy">
+			</div>
+				<button type="button" class="continue-btn add_book" id="counter_books">+</button>
+			</div>
+			</br></br>
+			<button type="submit" class="continue-btn subbook" id="submit_books">Submit</button>
+			</br>	
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var number_of_books = 1;
+	$('#counter_books').click(function() {
+    	number_of_books = number_of_books + 1;
+		});
+	$('#counter_books').click(function() {
+	$.ajax({
+	url: '/ajaxsend',
+	data: {
+	  'number_of_books': number_of_books
+	},
+	dataType: 'json',
+	success: function (data) {
+	  if (data.is_taken) {
+	  }
+	}
+	});
+	});
+});
+</script>
+{% endblock %}
