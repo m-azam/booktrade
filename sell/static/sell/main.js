@@ -22,7 +22,7 @@ $(document).ready(function(){
    		var max_fields= 10;
     	var add_button=$(".add_book");
   
-    	var x = 2;
+    	var x = 1;
     	$(add_button).click(function(e){
         	e.preventDefault();
         	if(x < max_fields){

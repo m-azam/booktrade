@@ -14,11 +14,14 @@ h1{
 	font:bold 70px 'Ubuntu', sans-serif;
 	text-shadow: 3px 3px 5px gray;
 }
-body{
+/*body{
 	background: -webkit-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 100%) fixed;
 	background: -o-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 100%) fixed;
 	background: -moz-linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 100%) fixed;
 	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 100%) fixed;
+}*/
+body{
+	background: #1fc8db;
 }
 .nav{
 	background-color: white;

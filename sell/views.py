@@ -6,7 +6,7 @@ from django.urls import reverse
 from .models import Book, Subject
 from django.http import JsonResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-number_of_books = 2
+number_of_books = 1
 def index(request):
 	sub_objs = Subject.objects.all().values('subject_name').distinct();
 	return render(request, 'sell/index.html', {'sub_objs':sub_objs})
@@ -64,8 +64,10 @@ def search(request):
 	course = request.POST['selectmenu2']
 	sem = request.POST['selectmenu1']	
 	subd = request.POST['subject_autocomplete2']
-	global book_objs
 	book_objs = Book.objects.filter(book_course = course).filter(book_sem = sem).filter(book_sub = subd)
+	request.session['course'] = course
+	request.session['sem'] = sem
+	request.session['subd'] = subd
 	paginator = Paginator(book_objs, 2)
 	page = request.GET.get('page')
 	try:
@@ -82,8 +84,10 @@ def searchm(request):
 	course = request.POST['selectmenu2m']
 	sem = request.POST['selectmenu1m']	
 	subd = request.POST['subject_autocomplete2m']
-	global book_objs
 	book_objs = Book.objects.filter(book_course = course).filter(book_sem = sem).filter(book_sub = subd)
+	request.session['course'] = course
+	request.session['sem'] = sem
+	request.session['subd'] = subd
 	paginator = Paginator(book_objs, 2)
 	page = request.GET.get('page')
 	try:
@@ -97,6 +101,10 @@ def searchm(request):
 	else:
 		return render(request, 'sell/search.html', {'books':books})
 def searchx(request, page):
+	course = request.session['course']
+	sem = request.session['sem']
+	subd = request.session['subd']
+	book_objs = Book.objects.filter(book_course = course).filter(book_sem = sem).filter(book_sub = subd)
 	paginator = Paginator(book_objs, 2)
 	page = request.GET.get('page')
 	try:
