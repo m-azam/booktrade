@@ -80,26 +80,6 @@ def search(request):
 		return render(request, 'sell/search.html', {'books':books, 'error':'None of the books match your search criteria.'})
 	else:
 		return render(request, 'sell/search.html', {'books':books})
-def searchm(request):
-	course = request.POST['selectmenu2m']
-	sem = request.POST['selectmenu1m']	
-	subd = request.POST['subject_autocomplete2m']
-	book_objs = Book.objects.filter(book_course = course).filter(book_sem = sem).filter(book_sub = subd)
-	request.session['course'] = course
-	request.session['sem'] = sem
-	request.session['subd'] = subd
-	paginator = Paginator(book_objs, 2)
-	page = request.GET.get('page')
-	try:
-		books = paginator.page(page)
-	except PageNotAnInteger:
-		books = paginator.page(1)
-	except EmptyPage:
-		books = paginator.page(paginator.num_pages)
-	if not book_objs:
-		return render(request, 'sell/search.html', {'books':books, 'error':'None of the books match your search criteria.'})
-	else:
-		return render(request, 'sell/search.html', {'books':books})
 def searchx(request, page):
 	course = request.session['course']
 	sem = request.session['sem']
